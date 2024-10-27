@@ -75,7 +75,7 @@ const NavigationBar = () => {
 
         <>
 
-            <Navbar className="mx-auto max-w-screen-3xl px-6 py-4 font-fira">
+            <Navbar className="mx-auto max-w-screen-3xl px-6 py-3 font-fira rounded-none">
                 <div className="flex items-center justify-between text-blue-gray-900">
                     <Typography
                         as="a"
