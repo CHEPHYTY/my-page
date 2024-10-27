@@ -10,50 +10,43 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 
-function NavList() {
+const pages = [
+    {
+        pageName: "Home",
+        nav: "/"
+    },
+    {
+        pageName: "About",
+        nav: "/about"
+    },
+    {
+        pageName: "Blogs",
+        nav: "/blog"
+    },
+    {
+        pageName: "Project",
+        nav: "/project"
+    },
+];
+
+function NavList({ pages }) {  // Ensure the pages prop is received
     return (
         <ul className="nav-list">
-            <Typography
-                variant="small"
-                color="blue-gray"
-                className="p-1 font-medium text-lg"
-            >
-                <Link to="/home" className="links">
-                    Home
-                </Link>
-            </Typography>
-            <Typography
-                variant="small"
-                color="blue-gray"
-                className="p-1 font-medium text-lg"
-            >
-                <Link to="/about" className="links">
-                    About
-                </Link>
-            </Typography>
-            <Typography
-                variant="small"
-                color="blue-gray"
-                className="p-1 font-medium text-lg"
-            >
-                <Link to="/project" className="links">
-                    Project
-                </Link>
-            </Typography>
-            <Typography
-                variant="small"
-                color="blue-gray"
-                className="p-1 font-medium text-lg"
-            >
-                <Link to='/blogs' className="links">
-                    Blogs
-                </Link>
-            </Typography>
+            {pages.map((item, index) => (  // Use map to render each page
+                <Typography
+                    key={index}
+                    variant="small"
+                    color="blue-gray"
+                    className="p-1 font-medium text-lg"
+                >
+                    <Link to={item.nav} className="links">
+                        {item.pageName}
+                    </Link>
+                </Typography>
+            ))}
         </ul>
     );
 }
-
-
 
 const NavigationBar = () => {
     const [openNav, setOpenNav] = useState(false);
@@ -70,11 +63,7 @@ const NavigationBar = () => {
     }, []);
 
     return (
-
-
-
         <>
-
             <Navbar className="mx-auto max-w-screen-3xl px-6 py-3 font-fira rounded-none">
                 <div className="flex items-center justify-between text-blue-gray-900">
                     <Typography
@@ -87,7 +76,7 @@ const NavigationBar = () => {
                         </Link>
                     </Typography>
                     <div className="hidden lg:block">
-                        <NavList />
+                        <NavList pages={pages} />  
                     </div>
                     <Button
                         variant="gradient"
@@ -111,7 +100,7 @@ const NavigationBar = () => {
                     </IconButton>
                 </div>
                 <Collapse open={openNav}>
-                    <NavList />
+                    <NavList pages={pages} />  {/* Pass pages here too */}
                     <Button fullWidth variant="gradient" size="sm" className="font-fira">
                         <Link to="/contact">Contact me</Link>
                     </Button>
@@ -119,8 +108,7 @@ const NavigationBar = () => {
             </Navbar>
             <Outlet />
         </>
-
-    )
-}
+    );
+};
 
 export default NavigationBar;
