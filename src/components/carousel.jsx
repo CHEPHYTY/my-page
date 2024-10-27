@@ -22,7 +22,7 @@ const CarouselComponent = ({ data }) => {
             )}
         >
             {data.map((item, index) => (
-                <div key={index} className="relative h-full w-full">
+                <div key={index} className="relative md:h-full w-full h-[400px]">
                     <img
                         src={item.image}
                         alt={`${item.name} image`}
@@ -33,14 +33,14 @@ const CarouselComponent = ({ data }) => {
                             <Typography
                                 variant="lead"
                                 color="white"
-                                className="mb-12 opacity-100 text-sm md:text-2xl md:opacity-80 inset-x-0 bottom-20 absolute"
+                                className=" mb-6 md:mb-12 opacity-100 text-xs md:text-2xl md:opacity-80 inset-x-0 bottom-20 absolute"
                             >
                                 {item.quote}
                             </Typography>
                             <Typography
                                 variant="h1"
                                 color="white"
-                                className="mb-4 text-2xl md:text-4xl lg:text-5xl inset-x-0 bottom-10 absolute"
+                                className="mb-4 text-xl md:text-4xl lg:text-5xl inset-x-0 bottom-10 absolute"
                             >
                                 {item.name}
                             </Typography>

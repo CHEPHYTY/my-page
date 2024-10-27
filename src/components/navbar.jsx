@@ -83,7 +83,7 @@ const NavigationBar = () => {
                         className="mr-4 cursor-pointer py-1.5 text-xl"
                     >
                         <Link to="/">
-                            Soumya Ranjan Hembram
+                            CHEPHYTY
                         </Link>
                     </Typography>
                     <div className="hidden lg:block">

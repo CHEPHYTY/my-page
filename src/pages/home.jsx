@@ -1,40 +1,33 @@
 import CarouselComponent from "../components/carousel";
 import ProfileCard from "../components/profileCard";
 
-
-
-import linusTorvalds from "../assets/Linus-Torvalds.png"
-import ellenUllman from "../assets/Ellen-Ullman.png"
-import marKZuckerber from "../assets/Mark-Zuckerberg.png"
-import robertCMartin from "../assets/Robert-C-Martin.png"
-import steveJobs from "../assets/Steve-Jobs.png"
 const quotes = [
     {
-        image: "https://raw.githubusercontent.com/CHEPHYTY/my-page/refs/heads/main/src/assets/Ellen-Ullman.png",
+        image: "https://raw.githubusercontent.com/CHEPHYTY/my-page/refs/heads/main/src/assets/Ellen-Ullman.jpg",
         quote: "here is always one more bug to fix. ",
         name: "Ellen Ullman"
 
     },
     {
-        image: "https://raw.githubusercontent.com/CHEPHYTY/my-page/refs/heads/main/src/assets/Mark-Zuckerberg.png",
+        image: "https://raw.githubusercontent.com/CHEPHYTY/my-page/refs/heads/main/src/assets/Mark-Zuckerberg.jpg",
         quote: "People don't care about what you say, they care about what you build",
         name: "Mark Zuckerberg"
 
     },
     {
-        image: "https://raw.githubusercontent.com/CHEPHYTY/my-page/refs/heads/main/src/assets/Linus-Torvalds.png",
+        image: "https://raw.githubusercontent.com/CHEPHYTY/my-page/refs/heads/main/src/assets/Linus-Torvalds.jpg",
         quote: "Software is like s*x: it's better when it's free.",
         name: "Linus Torvalds"
 
     },
     {
-        image: "https://raw.githubusercontent.com/CHEPHYTY/my-page/refs/heads/main/src/assets/Steve-Jobs.png",
+        image: "https://raw.githubusercontent.com/CHEPHYTY/my-page/refs/heads/main/src/assets/Steve-Jobs.jpg",
         quote: "Everybody in this country should learn to program a computer because it teaches you how to think",
         name: "Steve Jobs"
 
     },
     {
-        image: "https://raw.githubusercontent.com/CHEPHYTY/my-page/refs/heads/main/src/assets/Robert-C-Martin.png",
+        image: "https://raw.githubusercontent.com/CHEPHYTY/my-page/refs/heads/main/src/assets/Robert-C-Martin.jpg",
         quote: "Truth can only be found in one place: the code",
         name: "Robert C. Martin"
 
