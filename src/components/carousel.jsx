@@ -1,80 +1,28 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
-import { Carousel, IconButton, Typography } from "@material-tailwind/react";
-import { useState, useEffect, useRef } from "react";
+import { Carousel, Typography } from "@material-tailwind/react";
 
 const CarouselComponent = ({ data }) => {
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const timerRef = useRef(null);
-
-    const handleNext = () => {
-        setCurrentIndex(prevIndex => (prevIndex + 1) % data.length);
-    };
-
-    const handlePrevious = () => {
-        setCurrentIndex(prevIndex => (prevIndex - 1 + data.length) % data.length);
-        resetTimer();
-    };
-
-    const resetTimer = () => {
-        clearInterval(timerRef.current);
-        timerRef.current = setInterval(handleNext, 3000);
-    };
-
-    useEffect(() => {
-        timerRef.current = setInterval(handleNext, 3000);
-        return () => clearInterval(timerRef.current);
-    }, []);
-
     return (
-        <Carousel className="rounded-xl w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] xl:h-[800px]">
-            <IconButton
-                variant="text"
-                color="white"
-                size="lg"
-                onClick={handlePrevious}
-                className="!absolute top-2/4 left-4 -translate-y-2/4"
-            >
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={2}
-                    stroke="currentColor"
-                    className="h-6 w-6"
-                >
-                    <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
-                    />
-                </svg>
-            </IconButton>
-
-            <IconButton
-                variant="text"
-                color="white"
-                size="lg"
-                onClick={handleNext}
-                className="!absolute top-2/4 !right-4 -translate-y-2/4"
-            >
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={2}
-                    stroke="currentColor"
-                    className="h-6 w-6"
-                >
-                    <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                    />
-                </svg>
-            </IconButton>
-
+        <Carousel
+            className="rounded-xl w-full  sm:h-[500px] md:h-[600px] lg:h-[700px] xl:h-[800px]"
+            autoplay={true}
+            interval={2000}
+            loop={true}
+            navigation={({ setActiveIndex, activeIndex, length }) => (
+                <div className="absolute bottom-4 left-2/4 z-50 flex -translate-x-2/4 gap-2">
+                    {new Array(length).fill("").map((_, i) => (
+                        <span
+                            key={i}
+                            className={`block h-1 cursor-pointer rounded-2xl transition-all ${activeIndex === i ? "w-8 bg-white" : "w-4 bg-white/50"
+                                }`}
+                            onClick={() => setActiveIndex(i)}
+                        />
+                    ))}
+                </div>
+            )}
+        >
             {data.map((item, index) => (
-                <div key={index} className={`relative h-full w-full ${index === currentIndex ? "block" : "hidden"}`}>
+                <div key={index} className="relative h-full w-full">
                     <img
                         src={item.image}
                         alt={`${item.name} image`}
@@ -85,7 +33,7 @@ const CarouselComponent = ({ data }) => {
                             <Typography
                                 variant="lead"
                                 color="white"
-                                className="mb-6 opacity-100 text-sm md:text-xl md:opacity-80 inset-x-0 bottom-20 absolute"
+                                className="mb-12 opacity-100 text-sm md:text-2xl md:opacity-80 inset-x-0 bottom-20 absolute"
                             >
                                 {item.quote}
                             </Typography>
